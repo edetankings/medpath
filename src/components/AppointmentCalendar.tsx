@@ -1,0 +1,8 @@
+﻿import React, { useState } from 'react';
+import { Appointment } from '../types';
+import { Icons } from './Icons';
+export const AppointmentCalendar: React.FC<{appointments: Appointment[]}> = ({appointments}) => {
+ const [month,setMonth]=useState(()=>new Date(new Date().getFullYear(),new Date().getMonth(),1));
+ const days=new Date(month.getFullYear(),month.getMonth()+1,0).getDate();
+ return <details className="card ui-calendar-card"><summary>Calendar overview</summary><div className="card-header"><button className="icon-button" aria-label="Previous month" onClick={()=>setMonth(new Date(month.getFullYear(),month.getMonth()-1,1))}><Icons.ArrowLeft size={18}/></button><h2 className="card-title" aria-live="polite">{month.toLocaleDateString(undefined,{month:'long',year:'numeric'})}</h2><button className="icon-button" aria-label="Next month" onClick={()=>setMonth(new Date(month.getFullYear(),month.getMonth()+1,1))}><Icons.ArrowRight size={18}/></button></div><div className="ui-calendar">{['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(d=><span key={d}>{d}</span>)}{Array.from({length:month.getDay()},(_,i)=><span key={`blank-${i}`}/>)}{Array.from({length:days},(_,i)=>{const date=`${month.getFullYear()}-${String(month.getMonth()+1).padStart(2,'0')}-${String(i+1).padStart(2,'0')}`;const count=appointments.filter(a=>a.date===date && a.status!=='cancelled').length;return <div key={date} className={count?'has-visit':''} aria-label={`${date}: ${count} visit plans`}>{i+1}{count>0 && <small>{count} plan{count===1?'':'s'}</small>}</div>;})}</div><p>Dates reflect saved plans, not provider-confirmed availability.</p></details>;
+};

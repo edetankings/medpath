@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description"
+    content="MedPath is a modern global healthcare navigation platform helping patients find the right path through healthcare, connect with verified providers, and organize health documentation." />
+  <meta name="theme-color" content="#0B63E5" />
+  <title>MedPath — Your Path to Better Healthcare</title>
+
+  <!-- SVG Favicon with Medical Cross & Navigation Pathway Motif -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/icon.svg" />
+  <link rel="apple-touch-icon" href="assets/icons/icon.svg" />
+  <link rel="manifest" href="manifest.json" />
+
+  <!-- Preconnect & Google Fonts (Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- MedPath Design System Stylesheets -->
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/views.css" />
+</head>
+
+<body>
+  <!-- Semantic Application Container -->
+  <div id="root" role="application">
+    <div
+      style="display: flex; align-items: center; justify-content: center; min-height: 100vh; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #0B63E5;">
+      <div style="text-align: center;">
+        <svg width="40" height="40" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"
+          style="margin: 0 auto 16px;">
+          <rect width="32" height="32" rx="8" fill="#0B63E5" />
+          <path d="M16 7V25M7 16H25" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+          <circle cx="16" cy="16" r="3.5" fill="white" />
+        </svg>
+        <div style="font-weight: 600; font-size: 16px; color: #0F172A;">Loading MedPath...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- React Application Entry Point -->
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>

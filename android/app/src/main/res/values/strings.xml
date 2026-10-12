@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">MedPath</string>
+    <string name="title_activity_main">MedPath</string>
+    <string name="package_name">com.medpath.app</string>
+    <string name="custom_url_scheme">com.medpath.app</string>
+</resources>

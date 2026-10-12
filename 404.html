@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MedPath — Redirecting...</title>
+  <script>
+    // Redirect SPA deep links back to index.html with appropriate hash
+    const path = window.location.pathname.replace(/^\//, '');
+    const search = window.location.search;
+    const hash = window.location.hash;
+    const target = '/' + (path ? '#' + path : '') + search + hash;
+    window.location.replace(target);
+  </script>
+</head>
+<body>
+  <p>Redirecting to <a href="/">MedPath</a>...</p>
+</body>
+</html>

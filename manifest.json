@@ -1,0 +1,23 @@
+{
+  "name": "MedPath — Global Healthcare Navigation Platform",
+  "short_name": "MedPath",
+  "description": "Navigate your healthcare journey, connect with verified providers, and organize your health records.",
+  "start_url": "/#home",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#0B63E5",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/icons/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "medical",
+    "health",
+    "lifestyle"
+  ]
+}

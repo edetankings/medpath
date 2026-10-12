@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <!-- Rounded Brand Canvas -->
+  <rect width="512" height="512" rx="128" fill="#0B63E5"/>
+  
+  <!-- Subtle Gradient Accent Overlay -->
+  <circle cx="160" cy="140" r="220" fill="white" fill-opacity="0.08"/>
+  
+  <!-- Medical Geometric Cross Core -->
+  <rect x="220" y="112" width="72" height="288" rx="24" fill="white"/>
+  <rect x="112" y="220" width="288" height="72" rx="24" fill="white"/>
+  
+  <!-- Navigation Pathway Center Dot / Pulse Motif -->
+  <circle cx="256" cy="256" r="48" fill="#0B63E5"/>
+  <circle cx="256" cy="256" r="24" fill="white"/>
+</svg>

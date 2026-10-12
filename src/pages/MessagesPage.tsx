@@ -1,0 +1,12 @@
+﻿import React, { useState, useEffect } from 'react';
+import { AppShell } from '../components/AppShell';
+import { Icons } from '../components/Icons';
+import { ErrorState, Skeleton, Notice, EmptyState } from '../components/UI';
+import { api } from '../services/api';
+import { MessageThread } from '../types';
+export const MessagesPage: React.FC = () => {
+ const [threads,setThreads]=useState<MessageThread[]>([]); const [loading,setLoading]=useState(true); const [error,setError]=useState(''); const [selected,setSelected]=useState('');
+ useEffect(()=>{let active=true;api.getMessageThreads().then(data=>{if(active){setThreads(data);setSelected(data[0]?.id || '');}}).catch(()=>{if(active)setError('Messages could not be loaded. Return to this page to try again.');}).finally(()=>{if(active)setLoading(false);});return()=>{active=false;};},[]);
+ const thread=threads.find(t=>t.id===selected);
+ return <AppShell title="Care Messages" subtitle="A place for conversations when provider communication is connected."><Notice title="Messaging is in development">Sending messages and real-time delivery are not connected. Contact your provider through their established communication channels.</Notice>{error ? <ErrorState message={error}/> : loading ? <Skeleton label="Loading conversations"/> : <div className="ui-message-layout"><nav className="ui-thread-list" aria-label="Conversations"><span className="ui-eyebrow">YOUR CONVERSATIONS</span>{threads.length===0 ? <p>No conversations available.</p> : threads.map(t=><button className={`ui-thread ${selected===t.id?'active':''}`} key={t.id} aria-pressed={selected===t.id} onClick={()=>setSelected(t.id)}><strong>{t.providerName}</strong>{t.unread && <span className="badge badge-primary">Unread</span>}<small>{t.lastMessage}</small><small>{t.timestamp}</small></button>)}</nav><section className="ui-message-panel" aria-label="Message history">{thread ? <><h2>{thread.providerName}</h2><p>{thread.providerTitle}</p>{thread.messages.length ? thread.messages.map(m=><article className={`chat-bubble ${m.isUser?'chat-bubble-user':'chat-bubble-navigator'}`} key={m.id}><strong>{m.senderName}</strong><div>{m.text}</div><time>{m.timestamp}</time></article>) : <EmptyState title="No message history">No messages were returned for this conversation.</EmptyState>}</> : <EmptyState icon={<Icons.Messages size={27}/>} title="A conversation starts with connection">Provider communication is not available yet. There are no messages to show.</EmptyState>}</section></div>}</AppShell>;
+};

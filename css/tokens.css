@@ -1,0 +1,139 @@
+/* ==========================================================================
+   MEDPATH DESIGN TOKENS
+   Core aesthetic: Clean, Medical, Trustworthy, Modern, Calm, Professional, Minimal
+   ========================================================================== */
+
+:root {
+  /* --------------------------------------------------------------------------
+     COLOR PALETTE
+     Brand: White + Tech Blue with Calm Slate Neutrals
+     -------------------------------------------------------------------------- */
+  --color-primary: #0b63e5;
+  --color-primary-hover: #0952bf;
+  --color-primary-active: #07429c;
+  --color-primary-tint: #eff6ff;
+  --color-primary-light: #dbeafe;
+  --color-primary-border: #bfdbfe;
+  --color-primary-focus-ring: rgba(11, 99, 229, 0.2);
+
+  /* Deep Slate & Navy for Strong Visual Anchor */
+  --color-navy: #0f172a;
+  --color-navy-dark: #0a1120;
+  --color-slate: #1e293b;
+
+  /* Surfaces & Backgrounds */
+  --color-bg: #ffffff;
+  --color-bg-subtle: #f8fafc;
+  --color-bg-muted: #f1f5f9;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f8fafc;
+  --color-surface-elevated: #ffffff;
+
+  /* Typography Colors */
+  --color-text-primary: #0f172a;    /* Charcoal navy for crisp contrast */
+  --color-text-secondary: #334155;  /* Balanced dark slate for body readability */
+  --color-text-muted: #64748b;      /* Supporting text & metadata */
+  --color-text-subtle: #94a3b8;     /* Placeholders, disabled states */
+  --color-text-inverse: #ffffff;    /* Text on primary buttons / dark surfaces */
+
+  /* Borders & Dividers */
+  --color-border: #e2e8f0;          /* Clean subtle boundary */
+  --color-border-subtle: #f1f5f9;   /* Inner row dividers */
+  --color-border-hover: #cbd5e1;
+  --color-border-active: #0b63e5;
+
+  /* Clinical Status Semantic Colors */
+  --color-success: #059669;
+  --color-success-bg: #ecfdf5;
+  --color-success-border: #a7f3d0;
+  --color-success-text: #065f46;
+
+  --color-warning: #d97706;
+  --color-warning-bg: #fffbeb;
+  --color-warning-border: #fde68a;
+  --color-warning-text: #92400e;
+
+  --color-danger: #dc2626;
+  --color-danger-bg: #fef2f2;
+  --color-danger-border: #fecaca;
+  --color-danger-text: #991b1b;
+
+  --color-info: #0284c7;
+  --color-info-bg: #f0f9ff;
+  --color-info-border: #bae6fd;
+  --color-info-text: #075985;
+
+  /* --------------------------------------------------------------------------
+     TYPOGRAPHY SYSTEM
+     Standardized on Inter for gold-standard medical & clinical interface clarity
+     -------------------------------------------------------------------------- */
+  --font-family-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Strict Type Scale */
+  --font-size-xs: 0.75rem;     /* 12px - Labels, Badges, Microcopy */
+  --font-size-sm: 0.8125rem;   /* 13px - Supporting text, metadata */
+  --font-size-base: 0.9375rem; /* 15px - Body text, standard inputs, buttons */
+  --font-size-md: 1.0625rem;   /* 17px - Card titles, subheadings */
+  --font-size-lg: 1.25rem;     /* 20px - Section headings */
+  --font-size-xl: 1.5rem;      /* 24px - Modal titles, major section headers */
+  --font-size-2xl: 1.75rem;    /* 28px - Page titles (strong, not oversized) */
+  --font-size-3xl: 2.25rem;    /* 36px - Landing hero headline */
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --line-height-tight: 1.25;
+  --line-height-snug: 1.4;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+
+  /* --------------------------------------------------------------------------
+     SPACING SYSTEM (Intentional Rhythm)
+     -------------------------------------------------------------------------- */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+
+  /* --------------------------------------------------------------------------
+     BORDER RADII (Consistent & Restrained)
+     -------------------------------------------------------------------------- */
+  --radius-xs: 4px;
+  --radius-sm: 6px;     /* Small badges, micro tags */
+  --radius-md: 8px;     /* Inputs, standard buttons, tabs */
+  --radius-lg: 12px;    /* Cards, containers, panels */
+  --radius-xl: 16px;    /* Modals, featured hero containers */
+  --radius-full: 9999px;/* Pill badges, avatars */
+
+  /* --------------------------------------------------------------------------
+     SHADOWS (Subtle & Restrained)
+     -------------------------------------------------------------------------- */
+  --shadow-xs: 0 1px 2px 0 rgba(15, 23, 42, 0.04);
+  --shadow-sm: 0 1px 3px 0 rgba(15, 23, 42, 0.06), 0 1px 2px -1px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.06), 0 2px 4px -2px rgba(15, 23, 42, 0.03);
+  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.06), 0 4px 6px -4px rgba(15, 23, 42, 0.02);
+  --shadow-modal: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+
+  /* --------------------------------------------------------------------------
+     TRANSITIONS
+     -------------------------------------------------------------------------- */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 220ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* --------------------------------------------------------------------------
+     LAYOUT DIMENSIONS
+     -------------------------------------------------------------------------- */
+  --sidebar-width: 250px;
+  --header-height: 60px;
+  --bottom-nav-height: 62px;
+  --max-content-width: 1160px;
+}
