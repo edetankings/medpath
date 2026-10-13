@@ -41,6 +41,8 @@ npm run dev
 The frontend is available at `http://127.0.0.1:3000`. The API listens on
 `http://127.0.0.1:8000`; its interactive API documentation is at
 `http://127.0.0.1:8000/docs`.
+The database health check is available at `http://127.0.0.1:8000/api/health`;
+it returns an unavailable response if the database cannot be queried.
 
 Vite serves the frontend during development. Do not open `index.html` directly
 or serve the project root with a generic static server.

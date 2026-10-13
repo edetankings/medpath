@@ -13,20 +13,21 @@ Provides:
   - Audit Logging (HIPAA & Security Compliance)
 """
 
+import datetime
+import logging
 import os
-import sys
 import re
+import sqlite3
+import sys
 import time
 import uuid
-import datetime
 from contextlib import closing
+from typing import List, Optional, Literal, Dict, Any
 from urllib.parse import quote
 
 _BACKEND_DIR = os.path.dirname(os.path.abspath(__file__))
 if _BACKEND_DIR not in sys.path:
     sys.path.insert(0, _BACKEND_DIR)
-
-from typing import List, Optional, Literal, Dict, Any
 
 from fastapi import (
     FastAPI,
@@ -46,6 +47,8 @@ from fastapi.responses import StreamingResponse
 from starlette.background import BackgroundTask
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from pydantic import BaseModel, Field
+
+logger = logging.getLogger(__name__)
 
 # Internal Modules (supporting both relative & direct execution)
 try:
@@ -254,6 +257,17 @@ def read_root():
 
 @app.get("/api/health")
 def health_check():
+    conn = None
+    try:
+        conn = get_db_connection()
+        conn.execute("SELECT 1").fetchone()
+    except sqlite3.Error as error:
+        logger.exception("Health check database query failed.")
+        raise HTTPException(status_code=503, detail="Database unavailable.") from error
+    finally:
+        if conn is not None:
+            conn.close()
+
     return {
         "status": "healthy",
         "timestamp": int(time.time()),
